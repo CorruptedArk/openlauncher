@@ -47,8 +47,8 @@ public class IconPackHelper {
                     intResourceMask = iconPackResources.getIdentifier(getResource(iconPackResources, iconPackName, "iconmask", null), "drawable", iconPackName);
                 if (getResource(iconPackResources, iconPackName, "iconupon", null) != null)
                     intResourceUpon = iconPackResources.getIdentifier(getResource(iconPackResources, iconPackName, "iconupon", null), "drawable", iconPackName);
-                if (getResource(iconPackResources, iconPackName, "scale", null) != null)
-                    scale = Float.parseFloat(getResource(iconPackResources, iconPackName, "scale", null));
+                //if (getResource(iconPackResources, iconPackName, "scale", null) != null)
+                //    scale = Float.parseFloat(getResource(iconPackResources, iconPackName, "scale", null));
             }
         }
 
@@ -109,8 +109,8 @@ public class IconPackHelper {
                     scaledBitmap = Bitmap.createBitmap(iconSize, iconSize, Bitmap.Config.ARGB_8888);
                     canvas = new Canvas(scaledBitmap);
 
-                    if (back != null)
-                        canvas.drawBitmap(back, getResizedMatrix(back, iconSize, iconSize), p);
+                    //if (back != null)
+                    //   canvas.drawBitmap(back, getResizedMatrix(back, iconSize, iconSize), p);
 
                     canvasOrig = new Canvas(scaledOrig);
                     orig = getResizedBitmap(orig, (int) (iconSize * scale), (int) (iconSize * scale));

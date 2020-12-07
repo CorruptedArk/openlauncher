@@ -102,4 +102,23 @@ public class HpItemOption implements DialogListener.OnEditDialogListener {
             dock.addItemToCell(_item, _item._x, _item._y);
         }
     }
+
+    @Override
+    public void editIcon(int resId) {
+        _item.setIcon(_homeActivity.getDrawable(resId));
+        Setup.dataManager().saveItem(_item);
+        Point point = new Point(_item._x, _item._y);
+
+        if (_item._location.equals(ItemPosition.Group)) {
+            return;
+        } else if (_item._location.equals(ItemPosition.Desktop)) {
+            Desktop desktop = _homeActivity.getDesktop();
+            desktop.removeItem(desktop.getCurrentPage().coordinateToChildView(point), false);
+            desktop.addItemToCell(_item, _item._x, _item._y);
+        } else {
+            Dock dock = _homeActivity.getDock();
+            _homeActivity.getDock().removeItem(dock.coordinateToChildView(point), false);
+            dock.addItemToCell(_item, _item._x, _item._y);
+        }
+    }
 }

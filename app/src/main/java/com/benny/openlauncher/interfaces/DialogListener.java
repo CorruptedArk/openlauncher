@@ -8,5 +8,6 @@ public interface DialogListener {
 
     interface OnEditDialogListener {
         void onRename(String name);
+        void editIcon(int resId);
     }
 }

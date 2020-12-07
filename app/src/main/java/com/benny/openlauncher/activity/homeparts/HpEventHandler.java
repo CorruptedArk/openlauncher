@@ -36,6 +36,11 @@ public class HpEventHandler implements Setup.EventHandler {
             public void itemLabel(String label) {
                 listener.onRename(label);
             }
+
+            @Override
+            public void itemIcon(int resId) {
+                listener.editIcon(resId);
+            }
         });
     }
 

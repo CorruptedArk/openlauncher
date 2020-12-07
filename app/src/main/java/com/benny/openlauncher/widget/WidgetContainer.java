@@ -19,6 +19,8 @@ public class WidgetContainer extends FrameLayout {
     View vl;
     View hl;
 
+    final int DELAY = 2000;
+
     final Runnable action = new Runnable() {
         @Override
         public void run() {
@@ -49,7 +51,7 @@ public class WidgetContainer extends FrameLayout {
                 item.setSpanY(item.getSpanY() + 1);
                 scaleWidget(widgetContainer, item);
                 widgetContainer.removeCallbacks(action);
-                widgetContainer.postDelayed(action, 2000);
+                widgetContainer.postDelayed(action, DELAY);
             }
         });
 
@@ -60,7 +62,7 @@ public class WidgetContainer extends FrameLayout {
                 item.setSpanX(item.getSpanX() + 1);
                 scaleWidget(widgetContainer, item);
                 widgetContainer.removeCallbacks(action);
-                widgetContainer.postDelayed(action, 2000);
+                widgetContainer.postDelayed(action, DELAY);
             }
         });
 
@@ -71,7 +73,7 @@ public class WidgetContainer extends FrameLayout {
                 item.setSpanY(item.getSpanY() - 1);
                 scaleWidget(widgetContainer, item);
                 widgetContainer.removeCallbacks(action);
-                widgetContainer.postDelayed(action, 2000);
+                widgetContainer.postDelayed(action, DELAY);
             }
         });
 
@@ -82,7 +84,7 @@ public class WidgetContainer extends FrameLayout {
                 item.setSpanX(item.getSpanX() - 1);
                 scaleWidget(widgetContainer, item);
                 widgetContainer.removeCallbacks(action);
-                widgetContainer.postDelayed(action, 2000);
+                widgetContainer.postDelayed(action, DELAY);
             }
         });
     }
@@ -93,7 +95,7 @@ public class WidgetContainer extends FrameLayout {
         vl.animate().scaleY(1).scaleX(1);
         hl.animate().scaleY(1).scaleX(1);
 
-        postDelayed(action, 2000);
+        postDelayed(action, DELAY);
     }
 
     public void scaleWidget(View view, Item item) {

@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.benny.openlauncher.R;
@@ -31,6 +32,16 @@ import java.util.List;
 public class DialogHelper {
     public static void editItemDialog(String title, String defaultText, Context c, final OnItemEditListener listener) {
         MaterialDialog.Builder builder = new MaterialDialog.Builder(c);
+        ArrayList<ImageButton> buttons = new ArrayList<>();
+        ImageButton editIconButton = new ImageButton(c);
+        editIconButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Need to open activity to pick icon
+                //listener.itemIcon();
+            }
+        });
+        buttons.add(editIconButton);
         builder.title(title)
                 .positiveText(android.R.string.ok)
                 .negativeText(android.R.string.cancel)
@@ -39,7 +50,9 @@ public class DialogHelper {
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         listener.itemLabel(input.toString());
                     }
-                }).show();
+                })
+                //.items(buttons)
+                .show();
     }
 
     public static void alertDialog(Context context, String title, String msg, MaterialDialog.SingleButtonCallback onPositive) {
@@ -188,5 +201,6 @@ public class DialogHelper {
 
     public interface OnItemEditListener {
         void itemLabel(String label);
+        void itemIcon(int resId);
     }
 }
